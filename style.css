@@ -1,0 +1,266 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --bg: #080d1d;
+    --card: rgba(19, 28, 51, 0.88);
+    --border: rgba(148, 163, 184, 0.15);
+    --text: #f1f5f9;
+    --muted: #94a3b8;
+    --blue: #60a5fa;
+    --purple: #a78bfa;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+    color: var(--text);
+    background:
+        radial-gradient(ellipse at 10% 10%, #172554 0%, transparent 40%),
+        radial-gradient(ellipse at 90% 90%, #312e81 0%, transparent 35%),
+        var(--bg);
+}
+
+.dd {
+    width: 100%;
+    max-width: 850px;
+    padding: 38px;
+    position: relative;
+    overflow: hidden;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 28px;
+    box-shadow:
+        0 30px 90px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    animation: appear 0.8s ease both;
+}
+
+.dd::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 10%;
+    width: 80%;
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--blue),
+        var(--purple),
+        transparent
+    );
+    opacity: 0.9;
+}
+
+h1 {
+    margin-bottom: 32px;
+    font-size: clamp(25px, 4vw, 36px);
+    font-weight: 800;
+    text-align: center;
+    letter-spacing: -1px;
+    line-height: 1.4;
+    color: #fff;
+    background: linear-gradient(100deg, #ffffff, #93c5fd, #c4b5fd);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+p {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    min-width: 0;
+    margin-bottom: 14px;
+    padding: 19px 20px;
+    color: #cbd5e1;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.7;
+    background: rgba(30, 41, 59, 0.55);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+p:hover {
+    transform: translateY(-3px);
+    background: rgba(37, 57, 91, 0.65);
+    border-color: rgba(96, 165, 250, 0.45);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+p span {
+    max-width: 65%;
+    color: var(--blue);
+    font-size: 14px;
+    font-weight: 700;
+    text-align: right;
+    overflow-wrap: anywhere;
+}
+
+h2 {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 35px 0 20px;
+    color: #f8fafc;
+    font-size: 23px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+h2::before {
+    content: "";
+    flex-shrink: 0;
+    width: 5px;
+    height: 27px;
+    border-radius: 10px;
+    background: linear-gradient(180deg, var(--blue), var(--purple));
+    box-shadow: 0 0 15px rgba(96, 165, 250, 0.4);
+}
+
+#karta {
+    width: 100%;
+    height: 350px;
+    position: relative;
+    overflow: hidden;
+    background: #111c33;
+    border: 1px solid rgba(96, 165, 250, 0.25);
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+    isolation: isolate;
+}
+
+.karta {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: none;
+    filter: saturate(0.85) contrast(1.05);
+    transition: filter 0.3s ease;
+}
+
+#karta:hover .karta {
+    filter: saturate(1.1) contrast(1.05);
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(25px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 22px 12px;
+        align-items: flex-start;
+    }
+
+    .dd {
+        padding: 25px 18px;
+        border-radius: 22px;
+    }
+
+    h1 {
+        margin-bottom: 25px;
+        font-size: 26px;
+        letter-spacing: -0.6px;
+    }
+
+    p {
+        gap: 10px;
+        padding: 16px 14px;
+        font-size: 13px;
+        border-radius: 13px;
+    }
+
+    p span {
+        max-width: 58%;
+        font-size: 12px;
+    }
+
+    h2 {
+        margin: 28px 0 17px;
+        font-size: 20px;
+    }
+
+    #karta {
+        height: 280px;
+        border-radius: 16px;
+    }
+}
+
+@media (max-width: 360px) {
+    body {
+        padding: 15px 8px;
+    }
+
+    .dd {
+        padding: 22px 12px;
+        border-radius: 18px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    p {
+        padding: 13px 10px;
+        font-size: 11px;
+        gap: 7px;
+    }
+
+    p span {
+        font-size: 11px;
+        max-width: 55%;
+    }
+
+    h2 {
+        font-size: 19px;
+    }
+
+    #karta {
+        height: 230px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
